@@ -1,19 +1,123 @@
 // Colors
-$primary: #461E7D;
-$secondary: #FD6600;
-$complementary: #5738FF;
+$primary: #461e7d;
+$secondary: #fd6600;
+$complementary: #5738ff;
 $black: #000000;
 $white: #ffffff;
+$AvenirBook: "Avenir-Book", Arial, Helvetica, sans-serif;
+$AvenirBlack: "Avenir-Black", Arial, Helvetica, sans-serif;
 
 @import "./fonts.scss";
 
 // CSS BELOW
 body {
   background-color: $white;
-  font-family: "Avenir-Light", Arial, Helvetica, sans-serif;
+  font-family: $AvenirBook;
+  text-align: left;
+  opacity: 1;
+  width: 1440px;
+  height: 1759px;
+  margin: 40px auto;
 }
 
-h3 {
-  font-family: "Avenir-Black", Arial, Helvetica, sans-serif;
+.ordina {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
 }
 
+.ordina p {
+  text-align: right;
+  font: normal normal normal 15px/20px;
+  letter-spacing: 0px;
+  color: $complementary;
+  margin-right: 10px;
+}
+
+.fa-chevron-down {
+  color: $complementary;
+}
+
+.boiler {
+  margin-bottom: 30px;
+}
+
+#cardImg {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #00000008 0% 0% no-repeat padding-box;
+  border-radius: 3px;
+  position: relative;
+  height: 180px;
+  padding: 15px 15px 0 0;
+}
+
+.immagine-boiler {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.btn {
+  font: normal normal 900 12px/15px $AvenirBlack;
+  letter-spacing: 0px;
+  color: $white;
+  background: $secondary 0% 0% no-repeat padding-box;
+  border-radius: 0px 3px 3px 0px;
+  padding: 5px 10px;
+}
+
+.btn:hover {
+  color: $white;
+}
+
+.fa-heart {
+  color: #00000033;
+}
+
+.brand {
+  font: normal normal 900 12px/15px $AvenirBlack;
+  letter-spacing: 0.6px;
+  color: $black;
+  margin-top: 10px;
+}
+
+.descrizione {
+  font: normal normal normal 15px/20px;
+  letter-spacing: 0px;
+  color: $black;
+}
+
+.prezzo {
+  font: normal normal 900 20px/22px $AvenirBlack;
+  letter-spacing: 0px;
+  color: $secondary;
+}
+.prezzoPreSconto {
+  font: normal normal 900 20px/22px $AvenirBlack;
+  letter-spacing: 0px;
+  color: $black;
+}
+
+.note {
+  font: normal normal 900 12px/25px $AvenirBlack;
+  letter-spacing: 0px;
+  color: $secondary;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  text-align: right;
+  font: normal normal 900 12px/15px $AvenirBlack;
+  letter-spacing: 0.6px;
+  color: $complementary;
+}

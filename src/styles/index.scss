@@ -165,9 +165,9 @@ body {
   align-items: baseline;
   position: fixed;
   bottom: 0;
-  top: auto;
+  left: 0;
   height: 65px;
-  width: 1440px;
+  width: 100%;
   background-color: $complementary;
   padding: 19px 30px;
 }

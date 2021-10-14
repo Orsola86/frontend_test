@@ -23,7 +23,7 @@ body {
 .ordina {
   display: flex;
   justify-content: flex-end;
-  align-content: center;
+  align-items: baseline;
 }
 
 .ordina p {
@@ -38,6 +38,35 @@ body {
   color: $complementary;
 }
 
+// filtri
+.borderRight {
+  border-right: 1px solid #0000001a;
+  height: 100%;
+}
+
+.categorie p,
+.filters p {
+  font: normal normal 900 12px/20px $AvenirBlack;
+  letter-spacing: 0.6px;
+  color: $black;
+}
+
+.categorie ul {
+  list-style-type: none;
+}
+
+.filters p {
+  margin-top: 30px;
+}
+
+.filters label {
+  font: normal normal normal 15px/20px $AvenirBook;
+  letter-spacing: 0px;
+  color: $black;
+  margin-top: 10px;
+}
+
+//card boiler
 .boiler {
   margin-bottom: 30px;
 }
@@ -78,7 +107,7 @@ body {
   color: #00000033;
 }
 
-.brand {
+.brands {
   font: normal normal 900 12px/15px $AvenirBlack;
   letter-spacing: 0.6px;
   color: $black;
@@ -94,30 +123,69 @@ body {
 .prezzo {
   font: normal normal 900 20px/22px $AvenirBlack;
   letter-spacing: 0px;
-  color: $secondary;
+  color: $primary;
+  margin-right: 10px;
 }
+
 .prezzoPreSconto {
-  font: normal normal 900 20px/22px $AvenirBlack;
+  font: normal normal 900 12px/15px $AvenirBlack;
   letter-spacing: 0px;
   color: $black;
+  opacity: 0.5;
+  text-decoration: line-through;
 }
 
 .note {
   font: normal normal 900 12px/25px $AvenirBlack;
   letter-spacing: 0px;
+  color: $primary;
+}
+
+.scontato {
   color: $secondary;
 }
 
 .cardFooter {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 }
 
-label {
+.confronta {
   display: flex;
   align-items: center;
   text-align: right;
   font: normal normal 900 12px/15px $AvenirBlack;
   letter-spacing: 0.6px;
-  color: $complementary;
+  color: #0000004d;
+}
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  position: fixed;
+  bottom: 0;
+  top: auto;
+  height: 65px;
+  width: 1440px;
+  background-color: $complementary;
+  padding: 19px 30px;
+}
+
+.banner p {
+  font: normal normal normal 20px/26px $AvenirBook;
+  letter-spacing: 0px;
+  color: $white;
+}
+
+.btn-confronta {
+  border: 2px solid #ffffff;
+  border-radius: 100px;
+  background-color: $complementary;
+  color: $white;
+  //padding: 15px 40px;
+  font: normal normal 900 12px/20px $AvenirBook;
+  letter-spacing: 0.6px;
+  width: 162px;
+  height: 45px;
 }

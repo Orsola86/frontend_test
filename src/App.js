@@ -1,352 +1,59 @@
-import React from "react";
-import boiler from "../src/images/boiler.png";
+import React, { useEffect, useReducer, createContext } from "react";
+import Filters from "./Filters";
+import Boilers from "./Boilers";
+import Confronta from "./Confronta";
+import axios from "axios";
+
+const Initial_State = [];
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "fetchData":
+      return {
+        ...state,
+        boilers: action.payload,
+      };
+
+    default:
+      return state;
+  }
+}
+
+export const AppContext = createContext();
 
 function App() {
+  const [state, dispatch] = useReducer(reducer, Initial_State);
+  console.log(state);
+
+  useEffect(() => {
+    async function fetchData() {
+      await axios.get("http://localhost:9000/boilers").then((response) => {
+        response.status === 200 &&
+          dispatch({
+            type: "fetchData",
+            payload: response.data,
+          });
+      });
+    }
+    fetchData();
+  }, []);
+
   return (
-    <>
-      <div className="container">
+    <div className="container">
+      <AppContext.Provider value={[state, dispatch]}>
         <div className="ordina">
           <p>Ordina per: migliori recensioni</p>
           <i class="fas fa-chevron-down"></i>
         </div>
         <div className="row">
           {/* flitri */}
-          <div className="col-4">
-            <i class="fas fa-heart"></i>
-            <i class="fas fa-star"></i>
-          </div>
+          <Filters />
           {/* Boilers */}
-          <div className="col-8">
-            <div className="row">
-              {/* boiler */}
-              <div className="col-4">
-                <div className="boiler">
-                  <div id="cardImg">
-                    <button type="button" class="btn">
-                      Risparmi il 20%
-                    </button>
-                    <img
-                      src={boiler}
-                      alt="immagine boiler"
-                      className="immagine-boiler"
-                    />
-                    <i class="far fa-heart"></i>
-                  </div>
-                  <div>
-                    <h4 className="brand">ARISTON</h4>
-                    <p className="descrizione">
-                      Matis condens - Condensing Boiler 24 kW Methane - Indoor
-                    </p>
-                    <span className="prezzo">1.350,00</span>
-                    <span className="prezzoPreSconto">1.570,00</span>
-                    <p className="note">Sopralluogo e installazione inclusi</p>
-                  </div>
-                  <hr />
-                  <div className="cardFooter">
-                    <span className="stelle">4</span>
-                    <form>
-                      <label>
-                        {" "}
-                        CONFRONTA
-                        <input type="checkbox" name="confronta" value="1" />
-                      </label>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-4">
-                <div className="boiler">
-                  <div id="cardImg">
-                    <button type="button" class="btn">
-                      Risparmi il 20%
-                    </button>
-                    <img
-                      src={boiler}
-                      alt="immagine boiler"
-                      className="immagine-boiler"
-                    />
-                    <i class="far fa-heart"></i>
-                  </div>
-                  <div>
-                    <h4 className="brand">ARISTON</h4>
-                    <p className="descrizione">
-                      Matis condens - Condensing Boiler 24 kW Methane - Indoor
-                    </p>
-                    <span className="prezzo">1.350,00</span>
-                    <span className="prezzoPreSconto">1.570,00</span>
-                    <p className="note">Sopralluogo e installazione inclusi</p>
-                  </div>
-                  <hr />
-                  <div className="cardFooter">
-                    <span className="stelle">4</span>
-                    <form>
-                      <label>
-                        {" "}
-                        CONFRONTA
-                        <input type="checkbox" name="confronta" value="1" />
-                      </label>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-4">
-                <div className="boiler">
-                  <div id="cardImg">
-                    <button type="button" class="btn">
-                      Risparmi il 20%
-                    </button>
-                    <img
-                      src={boiler}
-                      alt="immagine boiler"
-                      className="immagine-boiler"
-                    />
-                    <i class="far fa-heart"></i>
-                  </div>
-                  <div>
-                    <h4 className="brand">ARISTON</h4>
-                    <p className="descrizione">
-                      Matis condens - Condensing Boiler 24 kW Methane - Indoor
-                    </p>
-                    <span className="prezzo">1.350,00</span>
-                    <span className="prezzoPreSconto">1.570,00</span>
-                    <p className="note">Sopralluogo e installazione inclusi</p>
-                  </div>
-                  <hr />
-                  <div className="cardFooter">
-                    <span className="stelle">4</span>
-                    <form>
-                      <label>
-                        {" "}
-                        CONFRONTA
-                        <input type="checkbox" name="confronta" value="1" />
-                      </label>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-4">
-                <div className="boiler">
-                  <div id="cardImg">
-                    <button type="button" class="btn">
-                      Risparmi il 20%
-                    </button>
-                    <img
-                      src={boiler}
-                      alt="immagine boiler"
-                      className="immagine-boiler"
-                    />
-                    <i class="far fa-heart"></i>
-                  </div>
-                  <div>
-                    <h4 className="brand">ARISTON</h4>
-                    <p className="descrizione">
-                      Matis condens - Condensing Boiler 24 kW Methane - Indoor
-                    </p>
-                    <span className="prezzo">1.350,00</span>
-                    <span className="prezzoPreSconto">1.570,00</span>
-                    <p className="note">Sopralluogo e installazione inclusi</p>
-                  </div>
-                  <hr />
-                  <div className="cardFooter">
-                    <span className="stelle">4</span>
-                    <form>
-                      <label>
-                        {" "}
-                        CONFRONTA
-                        <input type="checkbox" name="confronta" value="1" />
-                      </label>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-4">
-                <div className="boiler">
-                  <div id="cardImg">
-                    <button type="button" class="btn">
-                      Risparmi il 20%
-                    </button>
-                    <img
-                      src={boiler}
-                      alt="immagine boiler"
-                      className="immagine-boiler"
-                    />
-                    <i class="far fa-heart"></i>
-                  </div>
-                  <div>
-                    <h4 className="brand">ARISTON</h4>
-                    <p className="descrizione">
-                      Matis condens - Condensing Boiler 24 kW Methane - Indoor
-                    </p>
-                    <span className="prezzo">1.350,00</span>
-                    <span className="prezzoPreSconto">1.570,00</span>
-                    <p className="note">Sopralluogo e installazione inclusi</p>
-                  </div>
-                  <hr />
-                  <div className="cardFooter">
-                    <span className="stelle">4</span>
-                    <form>
-                      <label>
-                        {" "}
-                        CONFRONTA
-                        <input type="checkbox" name="confronta" value="1" />
-                      </label>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-4">
-                <div className="boiler">
-                  <div id="cardImg">
-                    <button type="button" class="btn">
-                      Risparmi il 20%
-                    </button>
-                    <img
-                      src={boiler}
-                      alt="immagine boiler"
-                      className="immagine-boiler"
-                    />
-                    <i class="far fa-heart"></i>
-                  </div>
-                  <div>
-                    <h4 className="brand">ARISTON</h4>
-                    <p className="descrizione">
-                      Matis condens - Condensing Boiler 24 kW Methane - Indoor
-                    </p>
-                    <span className="prezzo">1.350,00</span>
-                    <span className="prezzoPreSconto">1.570,00</span>
-                    <p className="note">Sopralluogo e installazione inclusi</p>
-                  </div>
-                  <hr />
-                  <div className="cardFooter">
-                    <span className="stelle">4</span>
-                    <form>
-                      <label>
-                        {" "}
-                        CONFRONTA
-                        <input type="checkbox" name="confronta" value="1" />
-                      </label>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-4">
-                <div className="boiler">
-                  <div id="cardImg">
-                    <button type="button" class="btn">
-                      Risparmi il 20%
-                    </button>
-                    <img
-                      src={boiler}
-                      alt="immagine boiler"
-                      className="immagine-boiler"
-                    />
-                    <i class="far fa-heart"></i>
-                  </div>
-                  <div>
-                    <h4 className="brand">ARISTON</h4>
-                    <p className="descrizione">
-                      Matis condens - Condensing Boiler 24 kW Methane - Indoor
-                    </p>
-                    <span className="prezzo">1.350,00</span>
-                    <span className="prezzoPreSconto">1.570,00</span>
-                    <p className="note">Sopralluogo e installazione inclusi</p>
-                  </div>
-                  <hr />
-                  <div className="cardFooter">
-                    <span className="stelle">4</span>
-                    <form>
-                      <label>
-                        {" "}
-                        CONFRONTA
-                        <input type="checkbox" name="confronta" value="1" />
-                      </label>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-4">
-                <div className="boiler">
-                  <div id="cardImg">
-                    <button type="button" class="btn">
-                      Risparmi il 20%
-                    </button>
-                    <img
-                      src={boiler}
-                      alt="immagine boiler"
-                      className="immagine-boiler"
-                    />
-                    <i class="far fa-heart"></i>
-                  </div>
-                  <div>
-                    <h4 className="brand">ARISTON</h4>
-                    <p className="descrizione">
-                      Matis condens - Condensing Boiler 24 kW Methane - Indoor
-                    </p>
-                    <span className="prezzo">1.350,00</span>
-                    <span className="prezzoPreSconto">1.570,00</span>
-                    <p className="note">Sopralluogo e installazione inclusi</p>
-                  </div>
-                  <hr />
-                  <div className="cardFooter">
-                    <span className="stelle">4</span>
-                    <form>
-                      <label>
-                        {" "}
-                        CONFRONTA
-                        <input type="checkbox" name="confronta" value="1" />
-                      </label>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-4">
-                <div className="boiler">
-                  <div id="cardImg">
-                    <button type="button" class="btn">
-                      Risparmi il 20%
-                    </button>
-                    <img
-                      src={boiler}
-                      alt="immagine boiler"
-                      className="immagine-boiler"
-                    />
-                    <i class="far fa-heart"></i>
-                  </div>
-                  <div>
-                    <h3 className="brand">ARISTON</h3>
-                    <p className="descrizione">
-                      Matis condens - Condensing Boiler 24 kW Methane - Indoor
-                    </p>
-                    <span className="prezzo">1.350,00</span>
-                    <span className="prezzoPreSconto">1.570,00</span>
-                    <p className="note">Sopralluogo e installazione inclusi</p>
-                  </div>
-                  <hr />
-                  <div className="cardFooter">
-                    <span className="stelle">4</span>
-                    <form>
-                      <label>
-                        {" "}
-                        CONFRONTA
-                        <input type="checkbox" name="confronta" value="1" />
-                      </label>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Boilers />
         </div>
-      </div>
-    </>
+        <Confronta />
+      </AppContext.Provider>
+    </div>
   );
 }
 

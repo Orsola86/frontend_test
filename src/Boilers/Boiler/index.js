@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import boiler from "../../images/boiler.png";
-import Confronta from "../../Confronta";
+import App, { AppContext } from "../../App";
 
 function Boiler({
   brand,
   descrizione,
-  id,
+  _id,
   immagine,
   note,
   prezzo,
   prezzoPreSconto,
   stelle,
 }) {
+  const [state, dispatch] = useContext(AppContext);
+
   return (
     <div className="col-4">
       <div className="boiler">
@@ -41,7 +43,13 @@ function Boiler({
 
           <label className="confronta">
             CONFRONTA
-            <input type="checkbox" name="confronta" value="1" />
+            <input
+              id={_id}
+              type="checkbox"
+              name="confronta"
+              value="1"
+              onChange={() => dispatch({ type: "confronta", payload: _id })}
+            />
           </label>
         </div>
       </div>

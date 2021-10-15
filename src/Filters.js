@@ -5,7 +5,7 @@ function Filters() {
     <div className="col-4 borderRight">
       <div class="categorie">
         <p>CATEGORIE</p>
-        <ul>
+        <ul className="first-ul">
           <li>Riscaldamento</li>
           <ul>
             <li>Casa e acqua</li>

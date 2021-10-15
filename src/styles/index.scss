@@ -155,6 +155,10 @@ body {
   align-items: baseline;
 }
 
+.fa-star {
+  color: $primary;
+}
+
 .confronta {
   display: flex;
   align-items: center;
@@ -163,6 +167,7 @@ body {
   letter-spacing: 0.6px;
   color: #0000004d;
 }
+
 .banner {
   display: flex;
   justify-content: space-between;

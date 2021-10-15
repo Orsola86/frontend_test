@@ -5,7 +5,7 @@ import { AppContext } from "../App";
 function Boilers() {
   const [state] = useContext(AppContext);
   const { boilers } = state;
-  console.log(boilers);
+  //console.log(boilers);
 
   return (
     <div className="col-8">

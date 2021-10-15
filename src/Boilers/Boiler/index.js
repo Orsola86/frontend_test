@@ -1,18 +1,18 @@
 import React, { useContext } from "react";
 import boiler from "../../images/boiler.png";
-import App, { AppContext } from "../../App";
+import { AppContext } from "../../App";
+import Rating from "../../Rating";
 
 function Boiler({
   brand,
   descrizione,
   _id,
-  immagine,
   note,
   prezzo,
   prezzoPreSconto,
   stelle,
 }) {
-  const [state, dispatch] = useContext(AppContext);
+  const [, dispatch] = useContext(AppContext);
 
   return (
     <div className="col-4">
@@ -39,7 +39,9 @@ function Boiler({
         </div>
         <hr />
         <div className="cardFooter">
-          <span className="stelle">{stelle}</span>
+          <span className="stelle">
+            <Rating stelle={stelle} />
+          </span>
 
           <label className="confronta">
             CONFRONTA

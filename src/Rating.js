@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { AppContext } from "./App";
+import React from "react";
 
 function Rating({ stelle }) {
   return [...Array(5)].map((_, index) =>

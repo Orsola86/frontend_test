@@ -35,13 +35,13 @@ function Filter({ filter }) {
                   <input type="checkbox" name={title} value={key} />
                   &nbsp;
                   {/* non capisco come inserire la logica nel componente <Rating/> */}
-                  {/* {[...Array(5)].map((_, index) =>
+                  {[...Array(5)].map((_, index) =>
                     index < convertiStelle(key) ? (
                       <i key={index} class="fas fa-star fa-xs"></i>
                     ) : (
                       <i key={index} class="far fa-star fa-xs"></i>
                     )
-                  )} */}
+                  )}
                   {/* fine logica rating */}
                   &nbsp;({value})
                 </label>

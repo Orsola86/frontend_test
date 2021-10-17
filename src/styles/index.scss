@@ -85,7 +85,7 @@ body {
 #cardImg {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: baseline;
   background: #00000008 0% 0% no-repeat padding-box;
   border-radius: 3px;
   position: relative;
@@ -103,6 +103,7 @@ body {
 
 .btn {
   //font: normal normal 900 12px/15px $AvenirBlack;
+
   font-size: 12px;
   line-height: 15px;
   font-family: $AvenirBlack;
@@ -119,6 +120,10 @@ body {
 
 .fa-heart {
   color: #00000033;
+}
+
+.fas.fa-heart {
+  color: red;
 }
 
 .brands {
@@ -186,8 +191,8 @@ body {
 }
 
 .confronta {
-  display: flex;
-  align-items: center;
+  // display: flex;
+  //align-items: flex-end;
   text-align: right;
   //font: normal normal 900 12px/15px $AvenirBlack;
   font-size: 12px;

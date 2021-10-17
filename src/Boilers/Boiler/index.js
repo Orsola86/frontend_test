@@ -19,13 +19,18 @@ function Boiler({
     <div className="col-4">
       <div className="boiler">
         <div id="cardImg">
-          {prezzoPreSconto && (
+          {prezzoPreSconto ? (
             <button type="button" class="btn">
               Risparmi il 20%
             </button>
+          ) : (
+            <div></div>
           )}
+          <i
+            onClick={(event) => event.target.classList.toggle("fas")}
+            class="far fa-heart"
+          ></i>
           <img src={boiler} alt="immagine boiler" className="immagine-boiler" />
-          <i class="far fa-heart"></i>
         </div>
         <div>
           <h4 className="brands">{brand.toUpperCase()}</h4>

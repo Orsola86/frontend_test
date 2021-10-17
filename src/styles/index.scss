@@ -28,7 +28,9 @@ body {
 
 .ordina p {
   text-align: right;
-  font: normal normal normal 15px/20px;
+  // font: normal normal normal 15px/20px;
+  font-size: 15px;
+  line-height: 20px;
   letter-spacing: 0px;
   color: $complementary;
   margin-right: 10px;
@@ -44,9 +46,12 @@ body {
   height: 100%;
 }
 
-.categorie p,
-.filters p {
-  font: normal normal 900 12px/20px $AvenirBlack;
+.categorie h4,
+.filters h4 {
+  // font: normal normal 900 12px/20px $AvenirBlack;
+  font-size: 12px;
+  line-height: 20px;
+  font-family: $AvenirBlack;
   letter-spacing: 0.6px;
   color: $black;
 }
@@ -59,12 +64,14 @@ body {
   padding: 0;
 }
 
-.filters p {
+.filters h4 {
   margin-top: 30px;
 }
 
 .filters label {
-  font: normal normal normal 15px/20px $AvenirBook;
+  //font: normal normal normal 15px/20px $AvenirBook;
+  font-size: 15px;
+  line-height: 20px;
   letter-spacing: 0px;
   color: $black;
   margin-top: 10px;
@@ -95,7 +102,10 @@ body {
 }
 
 .btn {
-  font: normal normal 900 12px/15px $AvenirBlack;
+  //font: normal normal 900 12px/15px $AvenirBlack;
+  font-size: 12px;
+  line-height: 15px;
+  font-family: $AvenirBlack;
   letter-spacing: 0px;
   color: $white;
   background: $secondary 0% 0% no-repeat padding-box;
@@ -112,27 +122,40 @@ body {
 }
 
 .brands {
-  font: normal normal 900 12px/15px $AvenirBlack;
+  //font: normal normal 900 12px/15px $AvenirBlack;
+  font-size: 12px;
+  line-height: 15px;
+  font-family: $AvenirBlack;
   letter-spacing: 0.6px;
   color: $black;
   margin-top: 10px;
+  margin-bottom: 0;
 }
 
 .descrizione {
-  font: normal normal normal 15px/20px;
+  //font: normal normal normal 15px/20px;
+  font-size: 15px;
+  line-height: 20px;
   letter-spacing: 0px;
   color: $black;
+  margin-bottom: 5px;
 }
 
 .prezzo {
-  font: normal normal 900 20px/22px $AvenirBlack;
+  //font: normal normal 900 20px/22px $AvenirBlack;
+  font-size: 20px;
+  line-height: 22px;
+  font-family: $AvenirBlack;
   letter-spacing: 0px;
   color: $primary;
   margin-right: 10px;
 }
 
 .prezzoPreSconto {
-  font: normal normal 900 12px/15px $AvenirBlack;
+  //font: normal normal 900 12px/15px $AvenirBlack;
+  font-size: 12px;
+  line-height: 15px;
+  font-family: $AvenirBlack;
   letter-spacing: 0px;
   color: $black;
   opacity: 0.5;
@@ -140,7 +163,10 @@ body {
 }
 
 .note {
-  font: normal normal 900 12px/25px $AvenirBlack;
+  //font: normal normal 900 12px/25px $AvenirBlack;
+  font-size: 12px;
+  line-height: 25px;
+  font-family: $AvenirBlack;
   letter-spacing: 0px;
   color: $primary;
 }
@@ -163,7 +189,10 @@ body {
   display: flex;
   align-items: center;
   text-align: right;
-  font: normal normal 900 12px/15px $AvenirBlack;
+  //font: normal normal 900 12px/15px $AvenirBlack;
+  font-size: 12px;
+  line-height: 15px;
+  font-family: $AvenirBlack;
   letter-spacing: 0.6px;
   color: #0000004d;
 }
@@ -182,7 +211,10 @@ body {
 }
 
 .banner p {
-  font: normal normal normal 20px/26px $AvenirBook;
+  //font: normal normal normal 20px/26px $AvenirBook;
+  font-size: 20px;
+  line-height: 26px;
+  font-family: $AvenirBlack;
   letter-spacing: 0px;
   color: $white;
 }
@@ -193,7 +225,10 @@ body {
   background-color: $complementary;
   color: $white;
   //padding: 15px 40px;
-  font: normal normal 900 12px/20px $AvenirBook;
+  //font: normal normal 900 12px/20px $AvenirBook;
+  font-size: 12px;
+  line-height: 20px;
+  font-family: $AvenirBlack;
   letter-spacing: 0.6px;
   width: 162px;
   height: 45px;

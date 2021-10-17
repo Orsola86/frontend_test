@@ -261,8 +261,10 @@
   ],
   "stock": [
     {
-      "disponibili": 15,
-      "inSconto": 4
+      "scegliPer": {
+        "disponibili": 15,
+        "inSconto": 4
+      }
     },
     {
       "brand": {

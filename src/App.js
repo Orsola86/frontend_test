@@ -3,33 +3,38 @@ import Filters from "./Filters";
 import Boilers from "./Boilers";
 import Compare from "./Compare";
 import axios from "axios";
+import { addBoiler, confronta, addFilters } from "./actions";
 
 const Initial_State = {
   boilers: [],
   confronta: [],
+  filters: [],
 };
 
 function reducer(state, action) {
-  console.log(action.payload);
   switch (action.type) {
-    case "fetchData":
+    case addBoiler:
       return {
         ...state,
         boilers: action.payload,
       };
-    // - Vi servirà sicuramente l'ID del prodotto che state selezionando quando premente il checkbox
-    // - Essendo che il checkbox si seleziona/deseleziona dovremmo
-    //   usare la logica del togliere/mettere da qualche parte (probabilmente nel reducer)
-    // - Nel reducer, come abbiamo visto, possono esserci if/else dentro un "case"
-    // - Il metodo "FIND" degli array può tornarvi particolarmente utile
-    //anche il metodo "SOME" potrebbe ritornarvi particolarmente utile
-    case "confronta":
+    case confronta:
       const isProductSelected = (e) => e === action.payload;
       return {
         ...state,
         confronta: state.confronta.some(isProductSelected)
           ? state.confronta.filter((e) => e !== action.payload)
           : [...state.confronta, action.payload],
+      };
+
+    case addFilters:
+      // filters[0]["sceltiPer"] = {
+      //   disponibili: 15,
+      //   inSconto: 4,
+      // };
+      return {
+        ...state,
+        filters: action.payload,
       };
 
     default:
@@ -48,12 +53,25 @@ function App() {
       await axios.get("http://localhost:9000/boilers").then((response) => {
         response.status === 200 &&
           dispatch({
-            type: "fetchData",
+            type: addBoiler,
             payload: response.data,
           });
       });
     }
     fetchData();
+  }, []);
+
+  useEffect(() => {
+    async function fetchFilters() {
+      await axios.get("http://localhost:9000/stock").then((response) => {
+        response.status === 200 &&
+          dispatch({
+            type: addFilters,
+            payload: response.data,
+          });
+      });
+    }
+    fetchFilters();
   }, []);
 
   return (

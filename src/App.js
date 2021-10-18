@@ -28,10 +28,6 @@ function reducer(state, action) {
       };
 
     case addFilters:
-      // filters[0]["sceltiPer"] = {
-      //   disponibili: 15,
-      //   inSconto: 4,
-      // };
       return {
         ...state,
         filters: action.payload,

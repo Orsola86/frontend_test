@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import boiler from "../../images/boiler.png";
 import { AppContext } from "../../App";
 import Rating from "../../Rating";
-import { confronta } from "../../actions";
+import { CONFRONTA } from "../../actions";
 
 function Boiler({
   brand,
@@ -56,7 +56,7 @@ function Boiler({
               type="checkbox"
               name="confronta"
               value="1"
-              onChange={() => dispatch({ type: confronta, payload: _id })}
+              onChange={() => dispatch({ type: CONFRONTA, payload: _id })}
             />
           </label>
         </div>

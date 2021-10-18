@@ -3,22 +3,24 @@ import Filters from "./Filters";
 import Boilers from "./Boilers";
 import Compare from "./Compare";
 import axios from "axios";
-import { addBoiler, confronta, addFilters } from "./actions";
+import { ADD_BOILER, CONFRONTA, ADD_FILTERS, SELECTED_FILTER } from "./actions";
 
 const Initial_State = {
   boilers: [],
   confronta: [],
   filters: [],
+  filteredBoilers: {},
 };
 
 function reducer(state, action) {
+  console.log(state);
   switch (action.type) {
-    case addBoiler:
+    case ADD_BOILER:
       return {
         ...state,
         boilers: action.payload,
       };
-    case confronta:
+    case CONFRONTA:
       const isProductSelected = (e) => e === action.payload;
       return {
         ...state,
@@ -26,11 +28,28 @@ function reducer(state, action) {
           ? state.confronta.filter((e) => e !== action.payload)
           : [...state.confronta, action.payload],
       };
-
-    case addFilters:
+    case ADD_FILTERS:
       return {
         ...state,
         filters: action.payload,
+      };
+
+    case SELECTED_FILTER:
+      return {
+        ...state,
+        filteredBoilers: {
+          // ...state.filteredBoilers,
+          // [action.payload.name]: action.payload.checked
+          //   ? action.payload.value
+          //   : "",
+
+          ...state.boilers?.filter((boiler) =>
+            action.payload.checked
+              ? boiler[action.payload.name].toLowerCase() ===
+                action.payload.value.toLowerCase()
+              : ""
+          ),
+        },
       };
 
     default:
@@ -49,7 +68,7 @@ function App() {
       await axios.get("http://localhost:9000/boilers").then((response) => {
         response.status === 200 &&
           dispatch({
-            type: addBoiler,
+            type: ADD_BOILER,
             payload: response.data,
           });
       });
@@ -62,7 +81,7 @@ function App() {
       await axios.get("http://localhost:9000/stock").then((response) => {
         response.status === 200 &&
           dispatch({
-            type: addFilters,
+            type: ADD_FILTERS,
             payload: response.data,
           });
       });
